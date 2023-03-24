@@ -11,9 +11,7 @@ sessionStorage = {}
 
 @app.route('/post', methods=['POST'])
 def main():
-    print(1)
     logging.info(f'Request: {request.json!r}')
-    print(2)
     response = {
         'session': request.json['session'],
         'version': request.json['version'],
@@ -21,11 +19,8 @@ def main():
             'end_session': False
         }
     }
-    print(3)
     handle_dialog(request.json, response)
-    print(4)
     logging.info(f'Response:  {response!r}')
-    print(5)
     return jsonify(response)
 
 
